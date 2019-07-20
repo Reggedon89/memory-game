@@ -1,0 +1,118 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    height: 60vh;
+    background-image: url("https://3.bp.blogspot.com/-G2Svwc2dpv0/XBYnuyIDD4I/AAAAAAAABvI/_dxaOK-wAHk0b739k_kqtloveCQeUv20wCHMYCw/s1600/53-death-star-hd-wallpapers-background-images-wallpaper-abyss.jpg")
+}
+
+.memory-game {
+    display: none;
+    margin: auto;
+    flex-wrap: wrap;
+    width: 1130px;
+    height: 640px;
+    perspective: 1000px;
+}
+
+.memory-card {
+    width: calc(15%);
+    height: calc(29.333%);
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+}
+
+.memory-card:active {
+    transform: scale(0.2s);
+    transition: transform 0.2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: rgb(140, 4, 10);
+    backface-visibility: hidden;
+
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+.play-again {
+
+    width: 190px;
+    height: 45px;
+    background: rgb(140, 4, 10);
+    color: white;
+    border: 1px solid #4ABDAC;
+
+}
+
+#livesWrapper {
+
+    font-size: 30px;
+    display: none;
+    flex-direction: column;
+    position: relative;
+    top: 325px;
+    right: 176px;
+    text-align: center;
+}
+
+#lives {
+    position: relative;
+
+    color: rgb(140, 4, 10);
+}
+
+#livesp {
+    position: relative;
+    color: white;
+}
+
+#logo {
+    position: relative;
+    left: 100px;
+    height: 200px;
+    width: 610px;
+    color: white;
+    background-image: url("https://data.whicdn.com/images/306659244/large.jpg");
+    background-position: 47% 53%;
+    background-repeat: no-repeat;
+}
+
+#startScreen {
+    position: relative;
+    top: 400px;
+    left: 450px;
+}
+
+#startButton {
+    padding: 40px;
+    border-radius: 25px;
+    background: rgb(140, 4, 10);
+    font-size: 20px;
+    color: white;
+    outline: none;
+}
