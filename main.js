@@ -1,6 +1,5 @@
 $(document).ready(() => {
   const cards = document.querySelectorAll(".memory-card");
-  cards.forEach(card => (card.win = false));
   let hasFlippedCard = false;
   let lockBoard = false;
   let firstCard, secondCard;
@@ -61,6 +60,7 @@ $(document).ready(() => {
       $("#livesWrapper").append(
         "<br><button enabled class='play-again'>Play again?</button>"
       );
+      start;
     }
     $(".play-again").on("click", function() {
       location.reload(true);
@@ -91,4 +91,45 @@ $(document).ready(() => {
   //     });
   //   })();
   cards.forEach(card => card.addEventListener("click", flipCard));
+  //this function handles the timer
+  function startTimer(duration, display) {
+    let start = Date.now(),
+      diff,
+      minutes,
+      seconds;
+    function timer() {
+      // get the number of seconds that have elapsed
+
+      diff = duration - (((Date.now() - start) / 1000) | 0);
+      // does the same job as parseInt truncates the float
+
+      minutes = (diff / 60) | 0;
+      seconds = diff % 60 | 0;
+
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.textContent = minutes + ":" + seconds;
+      if (diff <= 0) {
+        // this code adds an extra second to make the timer start at the full duration
+        start = Date.now() + 1000;
+      }
+    }
+    timer();
+    setInterval(timer, 1000);
+  }
+  $("#startScreen").on("click", function() {
+    $(".memory-game").css({ display: "flex" });
+    $("#startButton").css({ display: "none" });
+    $("#livesWrapper").css({ display: "flex" });
+
+    var fiveMinutes = 60 * 0.02,
+      display = document.querySelector("#display");
+    startTimer(fiveMinutes, display);
+  });
+  //trying to tie a lose conditions to the timer
+
+  if ($("#display") === "00:00") {
+    alert("you lose");
+  }
 });

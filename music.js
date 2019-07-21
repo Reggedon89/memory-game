@@ -1,6 +1,6 @@
 $(document).ready(() => {
   let backgroundMusic;
-  function sound(src) {
+  function Sound(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
     this.sound.setAttribute("preload", "auto");
@@ -14,4 +14,7 @@ $(document).ready(() => {
       this.sound.pause();
     };
   }
+
+  backgroundMusic = new Sound("sounds/mainTheme.mp3");
+  backgroundMusic.play();
 });

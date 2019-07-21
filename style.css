@@ -105,7 +105,7 @@ body {
 #startScreen {
     position: relative;
     top: 400px;
-    left: 450px;
+    left: 560px;
 }
 
 #startButton {
@@ -115,4 +115,14 @@ body {
     font-size: 20px;
     color: white;
     outline: none;
+}
+
+#timer {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    top: 400px;
+    left: 105px;
+    color: white;
+    font-size: 20px;
 }
