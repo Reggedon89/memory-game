@@ -84,12 +84,12 @@ $(document).ready(() => {
     [firstCard, secondCard] = [null, null];
   } //this shuffles the deck each time turned off to make testing easier
 
-  //   (function shuffle() {
-  //     cards.forEach(card => {
-  //       let randomPos = Math.floor(Math.random() * 12);
-  //       card.style.order = randomPos;
-  //     });
-  //   })();
+  (function shuffle() {
+    cards.forEach(card => {
+      let randomPos = Math.floor(Math.random() * 12);
+      card.style.order = randomPos;
+    });
+  })();
   cards.forEach(card => card.addEventListener("click", flipCard));
   //this function handles the timer
   function startTimer(duration, display) {
@@ -123,7 +123,7 @@ $(document).ready(() => {
     $("#startButton").css({ display: "none" });
     $("#livesWrapper").css({ display: "flex" });
 
-    var fiveMinutes = 60 * 0.02,
+    var fiveMinutes = 60 * 3,
       display = document.querySelector("#display");
     startTimer(fiveMinutes, display);
   });
